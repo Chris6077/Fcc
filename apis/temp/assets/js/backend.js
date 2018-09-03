@@ -39,7 +39,6 @@ app.controller("myCtrl", function($scope, $http) {
             success: function(e) {
                 if (e.message) {
                     $scope.loggedIn = true;
-                    hsuccess(e.message);
                 } else {
                     $scope.username = "";
                     password = "";
@@ -64,7 +63,6 @@ app.controller("myCtrl", function($scope, $http) {
             success: function(e) {
                 if (e.message) {
                     $scope.loggedIn = true;
-                    hsuccess(e.message);
                 } else {
                     $scope.username = "";
                     password = "";
