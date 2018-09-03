@@ -61,6 +61,12 @@ app.controller("myCtrl", function($scope, $http) {
 	$scope.refresh = function(){
 		$scope.refreshed = true;
 		$scope.refreshed = false;
+		$scope.login();
+	}
+	$scope.logout = function(){
+		$scope.username = "";
+		password = "";
+		$scope.loggedIn = "false";
 	}
     $scope.login = function(){
 		if($("#sign-up-form")[0].elements["username"].value && $("#sign-up-form")[0].elements["username"].value != ""){
