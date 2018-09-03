@@ -79,7 +79,7 @@
 					</div>
 					<div class="row">
 						<div class="col-md-4">
-							<form method="post" data-aos="fade" id="sign-up-form" class="signup" action="/user/new">
+							<form data-aos="fade" id="sign-up-form" class="signup">
 								<div class="text-center" ng-if="loggedIn">
 									<div data-aos="fade" class="illustration"><i class="fa fa-check"></i></div>
 									<p data-aos="fade">Logged in as {{ username }}</p>
@@ -90,7 +90,7 @@
 							</form>
 						</div>
 						<div class="col-md-4">
-							<form method="post" data-aos="fade" id="add-workout-form" action="/workout/new">
+							<form data-aos="fade" id="add-workout-form">
 								<div class="text-center" ng-if="!loggedIn">
 									<div data-aos="fade" class="illustration"><i class="fa fa-sign-in"></i></div>
 									<p data-aos="fade">Login to track workouts</p>
@@ -102,7 +102,7 @@
 							</form>
 						</div>
 						<div class="col-md-4">
-							<form method="post" data-aos="fade" id="show-workouts-form" action="/user/workouts">
+							<form data-aos="fade" id="show-workouts-form">
 								<div class="text-center" ng-if="!loggedIn">
 									<div data-aos="fade" class="illustration"><i class="fa fa-sign-in"></i></div>
 									<p data-aos="fade">Login to display workouts</p>
