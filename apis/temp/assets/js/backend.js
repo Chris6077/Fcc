@@ -96,10 +96,12 @@ app.controller("myCtrl", function($scope, $http) {
 		}
     };
     $scope.addworkout = function(){
-		if($("#add-workout-form")[0].elements["duration"].value && $("#add-workout-form")[0].elements["duration"].value >= 1){
+		if($("#add-workout-form")[0].elements["duration"].value && $("#add-workout-form")[0].elements["duration"].value >= 1 && $scope.loggedIn = "true"){
+			$loggedIn = 'loading';
 			$.ajax({
 				url: "https://workatrack.glitch.me/workout/new",
 				type: "POST",
+				async: false,
 				dataType: "JSON",
 				data: $("#add-workout-form").serialize() + '&username=' + $scope.username + '&password=' + password,
 				success: function(e) {
@@ -113,29 +115,34 @@ app.controller("myCtrl", function($scope, $http) {
 					herror(data.responseJSON.error);
 				}
 			});  
+			$scope.loggedIn = "true";
 		}
     };
     $scope.showworkouts = function(){
-        $.ajax({
-            url: "https://workatrack.glitch.me/user/workouts",
-            type: "POST",
-            dataType: "JSON",
-            data: $("#show-workouts-form").serialize() + '&username=' + $scope.username + '&password=' + password,
-            success: function(e) {
-                if (e) {
-                    $scope.workouts = [];
-                    for(var idx = 0; idx < e.length; idx++){
-                        $scope.workouts.push(Object.assign({},e[idx]));
-                    }
-                    $scope.tworkout();
-                } else {
-                    herror(e.responseJSON.error);
-                }
-            },
-            error: function(data) {
-                herror(data.responseJSON.error);
-            }
-        });  
+		if($scope.loggedIn = "true"){
+			$scope.loggedIn = "loading";
+			$.ajax({
+				url: "https://workatrack.glitch.me/user/workouts",
+				type: "POST",
+				dataType: "JSON",
+				data: $("#show-workouts-form").serialize() + '&username=' + $scope.username + '&password=' + password,
+				success: function(e) {
+					if (e) {
+						$scope.workouts = [];
+						for(var idx = 0; idx < e.length; idx++){
+							$scope.workouts.push(Object.assign({},e[idx]));
+						}
+						$scope.tworkout();
+					} else {
+						herror(e.responseJSON.error);
+					}
+				},
+				error: function(data) {
+					herror(data.responseJSON.error);
+				}
+			});  
+			$scope.loggedIn = "true";
+		}
     };
 	$scope.tworkout = function(){
 		$scope.api = "workout";
