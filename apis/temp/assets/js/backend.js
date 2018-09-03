@@ -8,6 +8,7 @@ app.controller("myCtrl", function($scope, $http) {
     $scope.workouts = [];
 	$scope.api = "home";
 	$scope.apimessage = "API Usage";
+	$scope.refreshed = false;
     function herror(err){
         if(err) $scope.errormessage = err;
         terror();
@@ -57,6 +58,10 @@ app.controller("myCtrl", function($scope, $http) {
 			});  
 		}
     };
+	$scope.refresh = function(){
+		$scope.refreshed = true;
+		$scope.refreshed = false;
+	}
     $scope.login = function(){
 		if($("#sign-up-form")[0].elements["username"].value && $("#sign-up-form")[0].elements["username"].value != ""){
 			$scope.loggedIn = 'loading';
@@ -69,7 +74,8 @@ app.controller("myCtrl", function($scope, $http) {
 				data: $("#sign-up-form").serialize(),
 				success: function(e) {
 					if (e.message) {
-						setTimeout(function(){$scope.loggedIn = 'true';},1);
+						$scope.loggedIn = 'true';
+						setTimeout($scope.refresh, 10);
 					} else {
 						$scope.username = "";
 						$scope.loggedIn = 'false';
