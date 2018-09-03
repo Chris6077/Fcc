@@ -104,7 +104,7 @@ app.controller("myCtrl", function($scope, $http) {
                 if (e) {
                     $scope.workouts = [];
                     for(var idx = 0; idx < e.length; idx++){
-                        $scope.workouts.push(e[idx].clone());
+                        $scope.workouts.push(Object.assign({},e[idx]));
                     }
                     $scope.tworkout();
                 } else {
