@@ -55,8 +55,6 @@ app.controller("myCtrl", function($scope, $http) {
 					herror(data.responseJSON.error);
 				}
 			});  
-			$scope.api = "api";
-			$scope.api = "home";
 		}
     };
     $scope.login = function(){
@@ -71,7 +69,7 @@ app.controller("myCtrl", function($scope, $http) {
 				data: $("#sign-up-form").serialize(),
 				success: function(e) {
 					if (e.message) {
-						$scope.loggedIn = 'true';
+						setTimeout(function(){$scope.loggedIn = 'true';},1);
 					} else {
 						$scope.username = "";
 						$scope.loggedIn = 'false';
@@ -86,8 +84,6 @@ app.controller("myCtrl", function($scope, $http) {
 					herror(data.responseJSON.error);
 				}
 			});
-			$scope.api = "api";
-			$scope.api = "home";
 		}
     };
     $scope.addworkout = function(){
