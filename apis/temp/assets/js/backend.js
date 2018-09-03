@@ -37,6 +37,7 @@ app.controller("myCtrl", function($scope, $http) {
 			$.ajax({
 				url: "https://workatrack.glitch.me/user/new",
 				type: "POST",
+				async: false,
 				dataType: "JSON",
 				data: $("#sign-up-form").serialize(),
 				success: function(e) {
@@ -58,11 +59,6 @@ app.controller("myCtrl", function($scope, $http) {
 			});  
 		}
     };
-	$scope.refresh = function(){
-		$scope.refreshed = true;
-		$scope.refreshed = false;
-		$scope.login();
-	}
 	$scope.logout = function(){
 		$scope.username = "";
 		password = "";
@@ -76,6 +72,7 @@ app.controller("myCtrl", function($scope, $http) {
 			$.ajax({
 				url: "https://workatrack.glitch.me/user/login",
 				type: "POST",
+				async: false,
 				dataType: "JSON",
 				data: $("#sign-up-form").serialize(),
 				success: function(e) {
