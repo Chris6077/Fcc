@@ -96,7 +96,7 @@ app.controller("myCtrl", function($scope, $http) {
 		}
     };
     $scope.addworkout = function(){
-		if($("#add-workout-form")[0].elements["duration"].value && $("#add-workout-form")[0].elements["duration"].value >= 1 && $scope.loggedIn = "true"){
+		if($("#add-workout-form")[0].elements["duration"].value && $("#add-workout-form")[0].elements["duration"].value >= 1 && $scope.loggedIn == "true"){
 			$loggedIn = 'loading';
 			$.ajax({
 				url: "https://workatrack.glitch.me/workout/new",
@@ -119,7 +119,7 @@ app.controller("myCtrl", function($scope, $http) {
 		}
     };
     $scope.showworkouts = function(){
-		if($scope.loggedIn = "true"){
+		if($scope.loggedIn == "true"){
 			$scope.loggedIn = "loading";
 			$.ajax({
 				url: "https://workatrack.glitch.me/user/workouts",
