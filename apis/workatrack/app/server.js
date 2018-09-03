@@ -8,7 +8,7 @@ app.use(bodyparser.urlencoded({
 var cors = require('cors');
 app.use(cors());
 var bcrypt = require('bcrypt');
-var saltRounds = 10;
+var saltRounds = config.SR;
 app.use(express.static('public'));
 var mongoose = require('mongoose');
 var config = require('./config');
@@ -90,6 +90,23 @@ function getWO(obj, res){
     else res.status(200).json(result);
   });
 }
+
+app.post('/user/login', function(req,res){
+  var usr = req.body;
+  if(!usr.username) res.status(406).json({'error': 'Required fields missing'});
+  else{
+    User.findOne({username: usr.username.toLowerCase()}, function(err, usr){
+      if(usr){
+        if(usr.password){
+          bcrypt.compare(usr.password, usr.password).then(function(result) {
+            if(result) res.status(200).json({'message': 'Logged in'});
+            else res.status(406).json({'error': 'Invalid username or password'})
+          });
+        } else res.status(200).json({'message': 'Logged in'});
+      } else res.status(406).json({'error': 'Invalid username or password'});
+    });
+  }
+});
 
 app.post('/workout/new', function(req,res){
   var obj = req.body;
