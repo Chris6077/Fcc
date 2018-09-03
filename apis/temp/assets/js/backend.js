@@ -70,6 +70,8 @@ app.controller("myCtrl", function($scope, $http) {
 				success: function(e) {
 					if (e.message) {
 						$scope.loggedIn = 'true';
+						this.isLoading = false;
+						$scope.isLoading = false;
 					} else {
 						$scope.username = "";
 						$scope.loggedIn = 'false';
