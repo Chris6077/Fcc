@@ -1,6 +1,6 @@
 var app = angular.module("myApp", []);
 app.controller("myCtrl", function($scope, $http) {
-    $scope.responseJSON.errormessage = "";
+    $scope.errormessage = "";
     $scope.successmessage = "";
     $scope.username = "";
     var password = "";
@@ -9,7 +9,7 @@ app.controller("myCtrl", function($scope, $http) {
 	$scope.api = "home";
 	$scope.apimessage = "API Usage";
     function herror(err){
-        if(err) $scope.responseJSON.errormessage = err;
+        if(err) $scope.errormessage = err;
         terror();
     }
     function hsuccess(suc){
