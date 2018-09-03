@@ -80,44 +80,58 @@
 					<div class="row">
 						<div class="col-md-4">
 							<form data-aos="fade" id="sign-up-form" class="signup">
-								<div class="text-center" ng-if="loggedIn">
+								<div class="text-center" ng-if="loggedIn == 'true'">
 									<div data-aos="fade" class="illustration"><i class="fa fa-check"></i></div>
 									<p data-aos="fade">Logged in as {{ username }}</p>
 								</div>
-								<div class="form-group" ng-if="!loggedIn"><input class="form-control" type="text" required="true" pattern="^\S*$" data-aos="fade" name="username" placeholder="Username*"></div>
-								<div class="form-group" ng-if="!loggedIn"><input class="form-control" type="password" name="password" placeholder="Password" data-aos="fade"></div>
-								<div class="form-group" ng-if="!loggedIn"><button class="btn btn-primary btn-block btn-sub" ng-click="login()" data-aos="fade">Sign In</button><button class="btn btn-primary btn-block btn-sub" ng-click="signup()" data-aos="fade">Sign Up</button></div>
+								<div class="text-center" ng-if="loggedIn == 'loading'">
+									<div data-aos="fade" class="illustration"><i class="fa fa-mixcloud"></i></div>
+								</div>
+								<div class="form-group" ng-if="loggedIn == 'false'"><input class="form-control" type="text" required="true" pattern="^\S*$" data-aos="fade" name="username" placeholder="Username*"></div>
+								<div class="form-group" ng-if="loggedIn == 'false'"><input class="form-control" type="password" name="password" placeholder="Password" data-aos="fade"></div>
+								<div class="form-group" ng-if="loggedIn == 'false'"><button class="btn btn-primary btn-block btn-sub" ng-click="login()" data-aos="fade">Sign In</button><button class="btn btn-primary btn-block btn-sub" ng-click="signup()" data-aos="fade">Sign Up</button></div>
 							</form>
 						</div>
 						<div class="col-md-4">
 							<form data-aos="fade" id="add-workout-form">
-								<div class="text-center" ng-if="!loggedIn">
+								<div class="text-center" ng-if="loggedIn == 'false'">
 									<div data-aos="fade" class="illustration"><i class="fa fa-sign-in"></i></div>
 									<p data-aos="fade">Login to track workouts</p>
 								</div>
-								<div class="form-group" ng-if="loggedIn"><input class="form-control" type="number" required="" data-aos="fade" name="duration" placeholder="Duration (mins.)*" min="1"></div>
-								<div class="form-group" ng-if="loggedIn"><input class="form-control" type="date" data-aos="fade" name="date"></div>
-								<div class="form-group" ng-if="loggedIn"><textarea class="form-control" rows="14" name="description" placeholder="Description" data-aos="fade"></textarea></div>
-								<div class="form-group" ng-if="loggedIn"><button class="btn btn-primary btn-block" ng-click="addworkout()" data-aos="fade" data-aos-offset="2">Add Workout</button></div>
+								<div class="text-center" ng-if="loggedIn == 'loading'">
+									<div data-aos="fade" class="illustration"><i class="fa fa-mixcloud"></i></div>
+								</div>
+								<div class="form-group" ng-if="loggedIn == 'true'"><input class="form-control" type="number" required="" data-aos="fade" name="duration" placeholder="Duration (mins.)*" min="1"></div>
+								<div class="form-group" ng-if="loggedIn == 'true'"><input class="form-control" type="date" data-aos="fade" name="date"></div>
+								<div class="form-group" ng-if="loggedIn == 'true'"><textarea class="form-control" rows="14" name="description" placeholder="Description" data-aos="fade"></textarea></div>
+								<div class="form-group" ng-if="loggedIn == 'true'"><button class="btn btn-primary btn-block" ng-click="addworkout()" data-aos="fade" data-aos-offset="2">Add Workout</button></div>
 							</form>
 						</div>
 						<div class="col-md-4">
 							<form data-aos="fade" id="show-workouts-form">
-								<div class="text-center" ng-if="!loggedIn">
+								<div class="text-center" ng-if="loggedIn == 'false'">
 									<div data-aos="fade" class="illustration"><i class="fa fa-sign-in"></i></div>
 									<p data-aos="fade">Login to display workouts</p>
 								</div>
-								<div class="form-group" ng-if="loggedIn"><input class="form-control" type="date" data-aos="fade" name="from"></div>
-								<div class="form-group" ng-if="loggedIn"><input class="form-control" type="date" data-aos="fade" name="to"></div>
-								<div class="form-group" ng-if="loggedIn"><input class="form-control" type="number" name="limit" placeholder="Limit" min="1" step="1"></div>
-								<div class="form-group" ng-if="loggedIn"><button class="btn btn-primary btn-block" ng-click="showworkouts()" data-aos="fade" data-aos-offset="2">Show Workouts</button></div>
+								<div class="text-center" ng-if="loggedIn == 'loading'">
+									<div data-aos="fade" class="illustration"><i class="fa fa-mixcloud"></i></div>
+								</div>
+								<div class="form-group" ng-if="loggedIn == 'true'"><input class="form-control" type="date" data-aos="fade" name="from"></div>
+								<div class="form-group" ng-if="loggedIn == 'true'"><input class="form-control" type="date" data-aos="fade" name="to"></div>
+								<div class="form-group" ng-if="loggedIn == 'true'"><input class="form-control" type="number" name="limit" placeholder="Limit" min="1" step="1"></div>
+								<div class="form-group" ng-if="loggedIn == 'true'"><button class="btn btn-primary btn-block" ng-click="showworkouts()" data-aos="fade" data-aos-offset="2">Show Workouts</button></div>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
+			<div class="row" ng-if="loggedIn == 'true' && api == 'home'">
+				<div class="col">
+					<div class="text-center"><button class="btn btn-primary btn-logout" type="button" ng-click="logout()"><i class="fa fa-sign-out"></i></button></div>
+				</div>
+			</div>
 			<div class='container' ng-if="api == 'api'"><div class='row'><div class='col-md-12 text-center'><h1>Work-A-Track API</h1></div></div><div class='row'><div class='col-md-12'><div class='text-center cont'><h2><br>Routes</h2><p><br>POST: /user/new<br>POST: /workout/new<br>POST: /user/workouts<br><br><br></p></div></div></div></div>
-			<div class='container' ng-if="api == 'workout'"><h1>Work-A-Track</h1><h3>Workout tracker</h3><div id='tableCont'><div class='container' data-aos='fade'><h1>Workouts</h1><div class='table-responsive' data-aos='fade'><table class='table' id='sessions'><thead data-aos='fade'><tr><th>Date</th><th>Duration</th><th>Description</th></tr></thead><tbody><tr data-aos='fade' ng-repeat='workout in workouts'><td>{{ workout.date }}</td><td>{{ workout.duration }}</td><td>{{ workout.description }}</td></tr></tbody></table></div></div></div></div>
+			<div class='container' ng-if="api == 'workout'"><div class="text-center"><h1>Work-A-Track</h1><h3>Workout tracker</h3></div><div id='tableCont'><div class='container' data-aos='fade'><h1>Workouts</h1><div class='table-responsive' data-aos='fade'><table class='table' id='sessions'><thead data-aos='fade'><tr><th>Date</th><th>Duration</th><th>Description</th></tr></thead><tbody><tr data-aos='fade' ng-repeat='workout in workouts'><td>{{ workout.date }}</td><td>{{ workout.duration }}</td><td>{{ workout.description }}</td></tr></tbody></table></div></div></div></div>
 		</div>
 		<div class="text-center back"><button class="btn btn-primary api" type="button" ng-click="tapi()" data-aos="fade">{{ apimessage }}</button></div>
 	</main>

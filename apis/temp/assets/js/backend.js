@@ -4,7 +4,7 @@ app.controller("myCtrl", function($scope, $http) {
     $scope.successmessage = "";
     $scope.username = "";
     var password = "";
-    $scope.loggedIn = false;
+    $scope.loggedIn = 'false';
     $scope.workouts = [];
 	$scope.api = "home";
 	$scope.apimessage = "API Usage";
@@ -29,70 +29,82 @@ app.controller("myCtrl", function($scope, $http) {
         }
 	}
     $scope.signup = function(){
-		$scope.username = $("#sign-up-form")[0].elements["username"].value;
-        password = $("#sign-up-form")[0].elements["password"].value;
-        $.ajax({
-            url: "https://workatrack.glitch.me/user/new",
-            type: "POST",
-            dataType: "JSON",
-            data: $("#sign-up-form").serialize(),
-            success: function(e) {
-                if (e.message) {
-                    $scope.loggedIn = true;
-                } else {
-                    $scope.username = "";
-                    password = "";
-                    herror(e.error);
-                }
-            },
-            error: function(data) {
-                $scope.username = "";
-                password = "";
-                herror(data.error);
-            }
-        });  
+		if($("#sign-up-form")[0].elements["username"].value && $("#sign-up-form")[0].elements["username"].value != ""){
+			$scope.loggedIn = 'loading';
+			$scope.username = $("#sign-up-form")[0].elements["username"].value;
+			password = $("#sign-up-form")[0].elements["password"].value;
+			$.ajax({
+				url: "https://workatrack.glitch.me/user/new",
+				type: "POST",
+				dataType: "JSON",
+				data: $("#sign-up-form").serialize(),
+				success: function(e) {
+					if (e.message) {
+						$scope.loggedIn = 'true';
+					} else {
+						$scope.username = "";
+						$scope.loggedIn = 'false';
+						password = "";
+						herror(e.error);
+					}
+				},
+				error: function(data) {
+					$scope.username = "";
+					$scope.loggedIn = 'false';
+					password = "";
+					herror(data.error);
+				}
+			});  
+		}
     };
     $scope.login = function(){
-        $scope.username = $("#sign-up-form")[0].elements["username"].value;
-        password = $("#sign-up-form")[0].elements["password"].value;
-        $.ajax({
-            url: "https://workatrack.glitch.me/user/login",
-            type: "POST",
-            dataType: "JSON",
-            data: $("#sign-up-form").serialize(),
-            success: function(e) {
-                if (e.message) {
-                    $scope.loggedIn = true;
-                } else {
-                    $scope.username = "";
-                    password = "";
-                    herror(e.error);
-                }
-            },
-            error: function(data) {
-                $scope.username = "";
-                password = "";
-                herror(data.error);
-            }
-        });
+		if($("#sign-up-form")[0].elements["username"].value && $("#sign-up-form")[0].elements["username"].value != ""){
+			$scope.loggedIn = 'loading';
+			$scope.username = $("#sign-up-form")[0].elements["username"].value;
+			password = $("#sign-up-form")[0].elements["password"].value;
+			$.ajax({
+				url: "https://workatrack.glitch.me/user/login",
+				type: "POST",
+				dataType: "JSON",
+				data: $("#sign-up-form").serialize(),
+				success: function(e) {
+					if (e.message) {
+						$scope.loggedIn = 'true';
+					} else {
+						$scope.username = "";
+						$scope.loggedIn = 'false';
+						password = "";
+						herror(e.error);
+					}
+				},
+				error: function(data) {
+					$scope.username = "";
+					$scope.loggedIn = 'false';
+					password = "";
+					herror(data.error);
+				}
+			});
+		}
     };
     $scope.addworkout = function(){
-        $.ajax({
-            url: "https://workatrack.glitch.me/workout/new",
-            type: "POST",
-            dataType: "JSON",
-            data: $("#add-workout-form").serialize() + '&username=' + $scope.username + '&password=' + password,
-            success: function(e) {
-                if (e.message) {
-                    hsuccess(e.message);
-                } else {
-                    herror(e.error);
-                }
-            },
-            error: function(data) {
-                herror(data.error);
-            }
-        });  
+		if($("#add-workout-form")[0].elements["duration"].value && $("#add-workout-form")[0].elements["duration"].value >= 1){
+			$.ajax({
+				url: "https://workatrack.glitch.me/workout/new",
+				type: "POST",
+				dataType: "JSON",
+				data: $("#add-workout-form").serialize() + '&username=' + $scope.username + '&password=' + password,
+				success: function(e) {
+					if (e.message) {
+						hsuccess(e.message);
+					} else {
+						herror(e.error);
+					}
+				},
+				error: function(data) {
+					herror(data.error);
+				}
+			});  
+		}
     };
     $scope.showworkouts = function(){
         $.ajax({
