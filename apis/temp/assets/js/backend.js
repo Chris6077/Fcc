@@ -1,6 +1,6 @@
 var app = angular.module("myApp", []);
 app.controller("myCtrl", function($scope, $http) {
-    $scope.errormessage = "";
+    $scope.responseJSON.errormessage = "";
     $scope.successmessage = "";
     $scope.username = "";
     var password = "";
@@ -9,7 +9,7 @@ app.controller("myCtrl", function($scope, $http) {
 	$scope.api = "home";
 	$scope.apimessage = "API Usage";
     function herror(err){
-        if(err) $scope.errormessage = err;
+        if(err) $scope.responseJSON.errormessage = err;
         terror();
     }
     function hsuccess(suc){
@@ -39,20 +39,20 @@ app.controller("myCtrl", function($scope, $http) {
 				dataType: "JSON",
 				data: $("#sign-up-form").serialize(),
 				success: function(e) {
-					if (e.message) {
+					if (e.responseJSON.message) {
 						$scope.loggedIn = 'true';
 					} else {
 						$scope.username = "";
 						$scope.loggedIn = 'false';
 						password = "";
-						herror(e.error);
+						herror(e.responseJSON.error);
 					}
 				},
 				error: function(data) {
 					$scope.username = "";
 					$scope.loggedIn = 'false';
 					password = "";
-					herror(data.error);
+					herror(data.responseJSON.error);
 				}
 			});  
 		}
@@ -68,20 +68,20 @@ app.controller("myCtrl", function($scope, $http) {
 				dataType: "JSON",
 				data: $("#sign-up-form").serialize(),
 				success: function(e) {
-					if (e.message) {
+					if (e.responseJSON.message) {
 						$scope.loggedIn = 'true';
 					} else {
 						$scope.username = "";
 						$scope.loggedIn = 'false';
 						password = "";
-						herror(e.error);
+						herror(e.responseJSON.error);
 					}
 				},
 				error: function(data) {
 					$scope.username = "";
 					$scope.loggedIn = 'false';
 					password = "";
-					herror(data.error);
+					herror(data.responseJSON.error);
 				}
 			});
 		}
@@ -94,14 +94,14 @@ app.controller("myCtrl", function($scope, $http) {
 				dataType: "JSON",
 				data: $("#add-workout-form").serialize() + '&username=' + $scope.username + '&password=' + password,
 				success: function(e) {
-					if (e.message) {
-						hsuccess(e.message);
+					if (e.responseJSON.message) {
+						hsuccess(e.responseJSON.message);
 					} else {
-						herror(e.error);
+						herror(e.responseJSON.error);
 					}
 				},
 				error: function(data) {
-					herror(data.error);
+					herror(data.responseJSON.error);
 				}
 			});  
 		}
@@ -120,11 +120,11 @@ app.controller("myCtrl", function($scope, $http) {
                     }
                     $scope.tworkout();
                 } else {
-                    herror(e.error);
+                    herror(e.responseJSON.error);
                 }
             },
             error: function(data) {
-                herror(data.error);
+                herror(data.responseJSON.error);
             }
         });  
     };
