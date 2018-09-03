@@ -39,7 +39,7 @@ app.controller("myCtrl", function($scope, $http) {
 				dataType: "JSON",
 				data: $("#sign-up-form").serialize(),
 				success: function(e) {
-					if (e.responseJSON.message) {
+					if (e.message) {
 						$scope.loggedIn = 'true';
 					} else {
 						$scope.username = "";
@@ -68,7 +68,7 @@ app.controller("myCtrl", function($scope, $http) {
 				dataType: "JSON",
 				data: $("#sign-up-form").serialize(),
 				success: function(e) {
-					if (e.responseJSON.message) {
+					if (e.message) {
 						$scope.loggedIn = 'true';
 					} else {
 						$scope.username = "";
@@ -94,8 +94,8 @@ app.controller("myCtrl", function($scope, $http) {
 				dataType: "JSON",
 				data: $("#add-workout-form").serialize() + '&username=' + $scope.username + '&password=' + password,
 				success: function(e) {
-					if (e.responseJSON.message) {
-						hsuccess(e.responseJSON.message);
+					if (e.message) {
+						hsuccess(e.message);
 					} else {
 						herror(e.responseJSON.error);
 					}
