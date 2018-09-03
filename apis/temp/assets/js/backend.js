@@ -55,6 +55,8 @@ app.controller("myCtrl", function($scope, $http) {
 					herror(data.responseJSON.error);
 				}
 			});  
+			$scope.api = "api";
+			$scope.api = "home";
 		}
     };
     $scope.login = function(){
@@ -70,8 +72,6 @@ app.controller("myCtrl", function($scope, $http) {
 				success: function(e) {
 					if (e.message) {
 						$scope.loggedIn = 'true';
-						this.isPlaying = false;
-						$scope.isPlaying = false;
 					} else {
 						$scope.username = "";
 						$scope.loggedIn = 'false';
@@ -86,6 +86,8 @@ app.controller("myCtrl", function($scope, $http) {
 					herror(data.responseJSON.error);
 				}
 			});
+			$scope.api = "api";
+			$scope.api = "home";
 		}
     };
     $scope.addworkout = function(){
