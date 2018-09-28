@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Eventify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
@@ -17,7 +17,7 @@
 <body>
     <div>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean">
-            <div class="container"><a class="navbar-brand" href="https://www.bashit.me/"><img src="https://bashit.me/images/head-1.png" height="40"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="container"><a class="navbar-brand" href="#"><img src="https://bashit.me/images/head-1.png" height="40"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div
                     class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav ml-auto">
@@ -29,6 +29,13 @@
     </div>
     </nav>
     </div>
+    <header class="d-block text-center" id="header"><img class="d-none" src="https://fcc.bashit.me/assets/img/logo.png" width="40px" height="40px" id="header-img">
+        <nav class="nav nav-tabs d-inline-flex list-group" id="nav-bar">
+            <li class="nav-item list-group-item list-group-item-action"><a class="nav-link text-dark" href="#Features">Features</a></li>
+            <li class="nav-item list-group-item list-group-item-action"><a class="nav-link text-dark" href="#Video">Video</a></li>
+            <li class="nav-item list-group-item list-group-item-action"><a class="nav-link text-dark" href="#Form">Form</a></li>
+        </nav>
+    </header>
     <div>
         <div class="header-blue">
             <div class="container hero">
@@ -48,61 +55,67 @@
     </div>
     <div class="features-boxed">
         <div class="container">
-            <div class="intro">
-                <h2 class="text-center" data-aos="fade">Features </h2>
-                <p class="text-center" data-aos="fade">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae.</p>
-            </div>
-            <div class="row d-flex flex-row flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center flex-wrap features">
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div data-aos="fade" class="box"><i class="fa fa-map-marker icon"></i>
-                        <h3 class="name">Works everywhere</h3>
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
+            <section id="Features">
+                <div class="intro">
+                    <h2 class="text-center" data-aos="fade">Features </h2>
+                    <p class="text-center" data-aos="fade">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae.</p>
                 </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div data-aos="fade" class="box"><i class="fa fa-clock-o icon"></i>
-                        <h3 class="name">Always available</h3>
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
+                <div class="row d-flex flex-row flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center flex-wrap features">
+                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                        <div data-aos="fade" class="box"><i class="fa fa-map-marker icon"></i>
+                            <h3 class="name">Works everywhere</h3>
+                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                        <div data-aos="fade" class="box"><i class="fa fa-clock-o icon"></i>
+                            <h3 class="name">Always available</h3>
+                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                        <div data-aos="fade" class="box"><i class="fa fa-list-alt icon"></i>
+                            <h3 class="name">Customizable </h3>
+                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                        <div data-aos="fade" class="box"><i class="fa fa-group icon"></i>
+                            <h3 class="name">Community Based</h3>
+                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                        <div data-aos="fade" class="box"><i class="fa fa-plane icon"></i>
+                            <h3 class="name">Fast </h3>
+                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
+                    </div>
+                    <div class="col-sm-6 col-md-5 col-lg-4 item">
+                        <div data-aos="fade" class="box"><i class="fa fa-phone icon"></i>
+                            <h3 class="name">24/7 Support</h3>
+                            <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
+                    </div>
                 </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div data-aos="fade" class="box"><i class="fa fa-list-alt icon"></i>
-                        <h3 class="name">Customizable </h3>
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div data-aos="fade" class="box"><i class="fa fa-group icon"></i>
-                        <h3 class="name">Community Based</h3>
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div data-aos="fade" class="box"><i class="fa fa-plane icon"></i>
-                        <h3 class="name">Fast </h3>
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div data-aos="fade" class="box"><i class="fa fa-phone icon"></i>
-                        <h3 class="name">24/7 Support</h3>
-                        <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu.</p><a href="#" class="learn-more">Learn more »</a></div>
-                </div>
-            </div>
+            </section>
         </div>
     </div>
     <div>
         <div class="container">
             <div class="row">
-                <div class="col-md-12 text-center" data-aos="fade" id="video"><iframe width="80%" height="100%" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/2QkL5FAOshI?autoplay=1&amp;loop=1&amp;playlist=2QkL5FAOshI"></iframe></div>
+                <div class="col-md-12 text-center" data-aos="fade">
+                    <section id="Video"><iframe width="80%" height="100%" allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/2QkL5FAOshI?autoplay=1&amp;loop=1&amp;playlist=2QkL5FAOshI" id="video"></iframe></section>
+                </div>
             </div>
         </div>
     </div>
     <div class="newsletter-subscribe">
         <div class="container">
-            <div class="intro">
-                <h2 class="text-center" data-aos="fade">! THIS FORM WILL SEND YOUR INPUT TO FREECODECAMP.ORG !</h2>
-                <p class="text-center" data-aos="fade">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
-            </div>
-            <form class="form-inline" method="post" data-aos="fade" id="form" action="https://www.freecodecamp.com/email-submit" enctype="multipart/form-data">
-                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Your Email" id="email"></div>
-                <div class="form-group"><button class="btn btn-primary" type="submit" id="submit">SUBMIT</button></div>
-            </form>
+            <section id="Form">
+                <div class="intro">
+                    <h2 class="text-center" data-aos="fade">! THIS FORM WILL SEND YOUR INPUT TO FREECODECAMP.ORG !</h2>
+                    <p class="text-center" data-aos="fade">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+                </div>
+                <form class="form-inline" method="post" data-aos="fade" id="form" action="https://www.freecodecamp.com/email-submit" enctype="multipart/form-data">
+                    <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Your Email" id="email"></div>
+                    <div class="form-group"><input class="form-control btn btn-primary" type="submit" id="submit"></div>
+                </form>
+            </section>
         </div>
     </div>
     <div class="footer-basic text-center">
@@ -116,8 +129,8 @@
                 </ul>
                 <p data-aos="fade" class="copyright"><br>Copyright © By Christian Winkler 2018 | All Rights Reserved.<br><br></p><a href="https://www.dmca.com/Protection/Status.aspx?ID=055767f8-7d45-4c78-becb-8cfd05574574&amp;refurl=https://bashit.me/" class="dcma-badge" title="DMCA.com Protection Status"><img src="//images.dmca.com/Badges/dmca-badge-w100-5x1-07.png?ID=055767f8-7d45-4c78-becb-8cfd05574574" alt="DMCA.com Protection Status" data-aos="fade" data-aos-offset="20"></a></footer>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="assets/js/script.min.js"></script>
 </body>
