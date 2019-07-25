@@ -36,7 +36,16 @@
     });
     </script> 
 </head>
-<body>
+<body style="display:none;">
+    <div id="preloader" style="background-color:#222222;position:fixed;top:0;left:0;width:100%;height:100%;z-index: 100;">
+      <div id="loader" style="position: absolute; top: 0; left: 0; bottom: 0; right: 0; margin: auto;">
+        <svg id="logo" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 -30 840 980" preserveAspectRatio="xMidYMid meet" style="width:0; height:0;">
+            <path fill="#222222" stroke="#222222" stroke-width="7" id="stroke1" d="M492.41,40.36c30.91-2,63.33,2.92,90.24,19,90.1,52.25,180.5,104,270.38,156.59,42.28,29.52,69.47,80.41,70.05,132q0,132.51,0,265c-.28,23.77,1.48,48-4.78,71.23-11.84,42.51-39.21,82.44-79,103.06q-131.84,76.15-263.68,152.3c-43.38,20.78-96.93,21-140.37.29-91.83-52.33-183.14-105.6-274.7-158.4-47-30.35-75.91-86.68-74.23-142.48q0-145.53,0-291c1-52,28.42-102.94,71.07-132.54q137-79.59,274.31-158.62C450.3,46.62,471.41,41.9,492.41,40.36Z" transform="translate(-86.26 -39.95)" />
+            <path fill="#222222" stroke="#222222" stroke-width="7" id="stroke2" d="M391.6,276.47c63.84-32.88,142.24-35.37,208.27-7.32,72.71,30.38,129.43,96.74,147.48,173.52a10.35,10.35,0,0,1-.36,5.23c-19.09.28-38.48,1.11-57.43-.41-5.29-10.47-7.69-22.43-14.08-32.47-21.33,79.67-43.22,159.18-64.64,238.83-.4,7.46-13.21,7.37-16.23,2.46C563.14,552.25,532.23,448,500.71,343.92,469.76,448,440.61,552.74,410,656.93c-3.69,3.89-15.39,4.38-16-3Q361.4,538,328.56,422c-25.72,53.71-22.48,119.93,6.88,171.58,32.15,59.06,97.09,99.24,164.59,99.62,79.48,2.37,157.3-50.24,183.74-125.42,1.49-3.5,2-9.55,7.18-9,16.69-.08,33.39-.13,50.08,0,2.7-.43,5.28,1.92,4.33,4.68-16.23,66.08-62.26,123.57-121.79,156-59.15,32.62-131.7,39.83-196,18.92-61.91-19.92-115.72-64.43-145.88-122.16-34.95-65-38.37-145.92-8.94-213.58C296.12,348.55,338.77,302.87,391.6,276.47Z" transform="translate(-86.26 -39.95)" />
+            <path fill="#222222" stroke="#222222" stroke-width="7" id="stroke3" d="M337.55,391.57C373.08,337,436.67,301.46,502,301.63c67-1.07,133.16,34.87,168.86,91.55,1.56,3.39-.62,7-1.28,10.41-21.5,78.55-42.69,157.19-64.23,235.71-.5,3.68-6.26,3.46-6.62-.15-32.15-106.93-63.7-214.06-96-320.93l-4.44,0c-31.17,107-61.74,214.26-92.77,321.33-1,4-6.62,2.5-6.85-1.2q-33.06-117-66.08-234C330.94,399.45,335.32,395.5,337.55,391.57Z" transform="translate(-86.26 -39.95)" />
+        </svg>
+      </div>
+    </div>
     <div>
         <nav class="navbar navbar-light navbar-expand-md navigation-clean">
             <div class="container"><a class="navbar-brand" href="#"><img src="https://bashit.me/assets/images/head-1.png" height="40"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -60,12 +69,16 @@
         </div>
     </div>
     <div class="footer-basic text-center" id="footer-import"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vivus/0.4.4/vivus.min.js"></script>
+    <script src="assets/js/lsanim.min.js"></script>
     <script>
     $(function() {
         $("#footer-import").load("https://bashit.me/assets/html/footer-bright.html");
+        AOS.init();
     });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
 </body>
 </html>
